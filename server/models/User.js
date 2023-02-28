@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaTypes } = require("mongoose");
 
 function validateEmail(email) {
   const emailRegex = new RegExp(
@@ -25,6 +25,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  posts: [{ type:Schema.Types.ObjectId, ref: 'Post' }]
 });
 
 const User = model("User", userSchema);
