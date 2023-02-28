@@ -1,29 +1,54 @@
-const { Tech, Matchup } = require('../models');
+const { User, Post } = require('../models');
 
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
+    allposts: async () => {
+      return Post.find({});
     },
-    matchups: async (parent, { _id }) => {
+    userposts: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Matchup.find(params);
+      return User.find(params);
     },
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+
+    createPost: async (parent, args) => {
+      const newPost = await Post.create(args);
+      return newPost;
     },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
-    },
+
+    editPost: async (parent, args) => {
+      const updatedPost = await Post.findByIdAndUpdate(args);
+      return updatedPost;
+    }, 
+
+    deletePost: async (parent, args) => {
+      const postToDelete = await Post.findByIdAndDelete(args);
+      return postToDelete;
+    }, 
+
+    createUser: async (parent, args) => {
+      const newUser = await User.create(args);
+      return newUser;
+    }, 
+
+    
   },
 };
+
+
+/* createMatchup: async (parent, args) => {
+  const matchup = await Matchup.create(args);
+  return matchup;
+},
+createVote: async (parent, { _id, techNum }) => {
+  const vote = await Matchup.findOneAndUpdate(
+    { _id },
+    { $inc: { [`tech${techNum}_votes`]: 1 } },
+    { new: true }
+  );
+  return vote;
+}, */
+
 
 module.exports = resolvers;
