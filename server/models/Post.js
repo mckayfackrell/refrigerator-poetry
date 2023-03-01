@@ -11,7 +11,7 @@ function dateFormat(date) {
 
 const postSchema = new Schema(
   {
-    title: {
+    postTitle: {
       type: String,
     },
     description: {

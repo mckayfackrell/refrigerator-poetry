@@ -1,41 +1,59 @@
-const { User, Post } = require('../models');
+const { User, Post } = require("../models");
 
 const resolvers = {
   Query: {
-    allposts: async () => {
+    allUsers: async () => {
+      return User.find({});
+    },
+    allPosts: async () => {
       return Post.find({});
     },
-    userposts: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return User.find(params);
+    postById: async (_parent, { _id }) => {
+      return Post.findById(_id);
     },
+    userById: async (_parent, { _id }) => {
+      return User.findById(_id);
+    },
+    // userposts: async (parent, { _id }) => {
+    //   const params = _id ? { _id } : {};
+    //   return User.find(params);
+    // },
   },
   Mutation: {
-
-    createPost: async (parent, args) => {
+    createPost: async (_parent, args) => {
       const newPost = await Post.create(args);
       return newPost;
     },
 
-    editPost: async (parent, args) => {
-      const updatedPost = await Post.findByIdAndUpdate(args);
+    editPost: async (_parent, { _id, postTitle, description }) => {
+      const updatedPost = await Post.findByIdAndUpdate(
+        _id,
+        { postTitle: postTitle, description: description },
+        { new: true }
+      );
       return updatedPost;
-    }, 
+    },
 
-    deletePost: async (parent, args) => {
-      const postToDelete = await Post.findByIdAndDelete(args);
+    deletePost: async (_parent, { _id }) => {
+      const postToDelete = await Post.findByIdAndDelete(_id);
       return postToDelete;
-    }, 
+    },
 
-    createUser: async (parent, args) => {
-      const newUser = await User.create(args);
-      return newUser;
-    }, 
+    editUserPosts: async (_parent, { _id, postId }) => {
+      const updatedUser = await User.findByIdAndUpdate(
+        _id,
+        { $addToSet: { posts: [postId] } },
+        { new: true }
+      );
+      return updatedUser;
+    },
 
-    
+    //   createUser: async (parent, args) => {
+    //     const newUser = await User.create(args);
+    //     return newUser;
+    //   },
   },
 };
-
 
 /* createMatchup: async (parent, args) => {
   const matchup = await Matchup.create(args);
@@ -49,6 +67,5 @@ createVote: async (parent, { _id, techNum }) => {
   );
   return vote;
 }, */
-
 
 module.exports = resolvers;
