@@ -6,29 +6,27 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    posts: [Post]
+    posts: [String]
   }
 
   type Post {
     _id: ID!
-    title: String
+    postTitle: String
     description: String!
-    createdAt: Date
-    comments: [Comment]
   }
 
   type Query {
-    posts: [Post]
-    post(_id: String): [Post]
+    allPosts: [Post]
+    allUsers: [User]
+    postById(_id: ID!): Post
+    userById(_id: ID!): User
   }
 
   type Mutation {
-
-    createPost(title: String, description: String!): Post
-    editPost(title: String, description: String!): Post
-    deletePost(): Post
-
-    createUser(): User
+    createPost(postTitle: String, description: String!): Post
+    editPost(_id: ID!, postTitle: String, description: String): Post
+    deletePost(_id: ID!): Post
+    editUserPosts(_id: ID!, postId: ID!): User
   }
 `;
 
