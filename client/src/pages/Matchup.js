@@ -4,6 +4,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_TECH } from '../utils/queries';
 import { CREATE_MATCHUP } from '../utils/mutations';
 
+
 const Matchup = () => {
   const { loading, data } = useQuery(QUERY_TECH);
 
@@ -12,7 +13,7 @@ const Matchup = () => {
   const [formData, setFormData] = useState({
     tech1: 'JavaScript',
     tech2: 'JavaScript',
-  });
+  }); 
   let navigate = useNavigate();
 
   const [createMatchup, { error }] = useMutation(CREATE_MATCHUP);
@@ -22,7 +23,7 @@ const Matchup = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit2 = async (event) => {
     event.preventDefault();
 
     try {
@@ -50,7 +51,7 @@ const Matchup = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit2}>
             <label>Tech 1: </label>
             <select name="tech1" onChange={handleInputChange}>
               {techList.map((tech) => {
@@ -77,7 +78,7 @@ const Matchup = () => {
           </form>
         )}
       </div>
-      {error && <div>Something went wrong...</div>}
+      {error &&<div>Something went wrong...</div>}
     </div>
   );
 };

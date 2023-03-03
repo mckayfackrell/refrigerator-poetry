@@ -5,13 +5,17 @@ import { useMutation } from '@apollo/client';
 import { CREATE_POST } from '../utils/mutations';
 
 const EditPost = () => {
-  // const { loading, data } = useQuery(QUERY_TECH);
+// const { loading, data } = useQuery(QUERY_TECH);
 
-  // const techList = data?.tech || [];
+//  const techList = data?.tech || [];
+
+//  const formPostTitle = data?.postTitle;
+//  const formPostText = data?.postTest;
+
 
   const [formData, setFormData] = useState({
-    poemTitle: 'title here',
-    poemText: 'poem here'
+    postTitle: '',
+    description: ''
   }); 
   let navigate = useNavigate();
 
@@ -19,30 +23,38 @@ const EditPost = () => {
 
 
 
-  const handleInputChange = (event) => {
+    const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-  };
+    }; 
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    // console.log('formData:' + formData);
 
     try {
       const { data } = await createPost({
         variables: { ...formData },
       });
 
+      console.log('id: ' + data.createPost._id);
+
 
       // ?
-  /*     navigate(`/matchup/${data.createMatchup._id}`);
+    /* navigate(`/matchup/${data.createMatchup._id}`);
     } catch (err) {
       console.error(err);
-    } */
+    }  */
 
-    navigate(`/postById/${data.createMatchup._id}`);
+    
+
+    navigate(`/post/${data.createPost._id}`);
     } catch (err) {
     console.error(err);
     }
+
+
 
     /* setFormData({
       tech1: 'JavaScript',
@@ -56,13 +68,18 @@ const EditPost = () => {
         <h1>New Post</h1>
       </div>
       <div className="card-body m-5">
-        <form onSubmit={handleFormSubmit}>
+
+     
+            <form onSubmit={handleFormSubmit}>
             <label>Add a Title</label>
-            <input name="poemTitle" onChange={handleInputChange} />
+            <input name="postTitle" onChange={handleInputChange} />
             <label>Write a Poem </label>
-            <textarea name="poemText" onChange={handleInputChange}></textarea>
+            <textarea name="description" onChange={handleInputChange}></textarea>
             <button className="btn btn-danger" type="submit">SUBMIT</button>
-        </form>
+            </form>
+       
+
+        
       </div>
       {error && <div>Something went wrong...</div>}
     </div>
