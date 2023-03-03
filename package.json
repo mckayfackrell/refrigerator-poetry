@@ -1,5 +1,5 @@
 {
-  "name": "tech-matchup-app",
+  "name": "refrigerator-poetry",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -17,5 +17,8 @@
     "concurrently": "^5.3.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
+  },
+  "dependencies": {
+    "react-icons": "^4.7.1"
   }
 }
