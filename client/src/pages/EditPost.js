@@ -6,37 +6,47 @@ import { CREATE_POST } from '../utils/mutations';
 
 const EditPost = (props) => {
 
-    function moveMagnet(word) {
-        console.log(word);
-    }
-
-    /* const { loading, data } = useQuery(QUERY_TECH);
-
-    const techList = data?.tech || [];
-    console.log(techList); */
-
-//  const formPostTitle = data?.postTitle;
-//  const formPostText = data?.postTest;
-
-
+  // Form Handling
   const [formData, setFormData] = useState({
     postTitle: '',
     description: ''
   }); 
+
+
+  const welcomeMsg = 'Click on word magnets to start your poem!';
+
+  // Set poemBody state
+  const[poemBody, writePoem] = useState(welcomeMsg);
+
+  // Update poemBody state
+  function moveMagnet(word) {
+
+      console.log(word);
+      const wrappedWord = '<span className="magnet">' + word + '</span>';
+
+      if(poemBody === welcomeMsg) {
+          writePoem(wrappedWord);
+          setFormData({ ...formData, description: wrappedWord });
+      } else {
+          writePoem((prev) => prev + wrappedWord);
+          // setFormData( formData.description + wrappedWord );
+          setFormData({ ...formData, description: poemBody + wrappedWord });
+      }
+  }
+
   let navigate = useNavigate();
 
   const [createPost, { error }] = useMutation(CREATE_POST);
 
     const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
     }; 
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-
       const { data } = await createPost({
         variables: { ...formData },
       }); 
@@ -49,11 +59,6 @@ const EditPost = (props) => {
     } catch (err) {
     console.error(err);
     }
-
-    /* setFormData({
-      tech1: 'JavaScript',
-      tech2: 'JavaScript',
-    }); */
 
   };
 
@@ -108,7 +113,10 @@ const EditPost = (props) => {
                     </div>
                 </div>
 
-                <div id="poem-container" className="empty">click on word magnets to start your poem</div>
+                <div id="poem-container" className="empty">
+                    <div dangerouslySetInnerHTML={{__html: poemBody}} />
+                </div>
+
                 <div id="help-buttons" className="text-right">
                     <button className="btn floating col-3" data-func="start-over">START OVER</button>
                 </div>
@@ -116,15 +124,9 @@ const EditPost = (props) => {
                 <form className="form update-a-post-form" data-id="usethepostidforthis" data-func="save" onSubmit={handleFormSubmit}>
                     <div className="form-group display-flex justify-content-space-between">
                         <input className="form-input" type="text" id="newpost-title" name="postTitle" placeholder="title of your poem" onChange={handleInputChange} />
-                        <textarea name="description" onChange={handleInputChange}></textarea>
+                        <input type="hidden" name="description" />
                         <button className="btn btn-submit floating" type="submit">SAVE</button>
                     </div>
-
-                    {/* <label>Add a Title</label>
-                    <input name="postTitle" onChange={handleInputChange} />
-                    <label>Write a Poem </label>
-                    <textarea name="description" onChange={handleInputChange}></textarea>
-                    <button className="btn btn-danger" type="submit">SUBMIT</button> */}
 
                 </form>
             </div>

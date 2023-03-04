@@ -1,10 +1,7 @@
 import React from 'react';
 
 const UserPosts = ({ postList }) => {
-  if (!postList.length) {
-    return <h3>No Poetry Yet</h3>;
-  }
-
+  
   return (
     <div>
       {postList &&
@@ -13,7 +10,7 @@ const UserPosts = ({ postList }) => {
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {poem.postTitle} 
             </h4>
-            <p>{poem.description}</p>
+            <div dangerouslySetInnerHTML={{__html: poem.description}} />
           </div>
         ))}
     </div>
