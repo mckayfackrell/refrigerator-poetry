@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../assets/logo.png";
-import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -13,46 +13,40 @@ const Navbar = () => {
     <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#ffffff] text-black">
       {/* logo */}
       <div className="flex items-center">
-        <Link to="home" smooth={true} duration={500}>
+        <RouterLink to="/">
           <img
             className="hover:cursor-pointer"
             src={Logo}
             alt="Fridge"
             style={{ width: "60px" }}
           />
-        </Link>
-        <div className="ml-2 text-xl md:text-2xl">Refrigerator Poetry</div>
+        </RouterLink>
+        <div className="ml-2 text-xl md:text-2xl hover:cursor-pointer">
+          <RouterLink to="/">Refrigerator Poetry</RouterLink>
+        </div>
       </div>
 
       {/* menu */}
       <ul className="hidden md:flex">
         <li className="hover:underline md:text-xl m-4">
-          <Link to="home" smooth={true} duration={500}>
-            Home
-          </Link>
+          <RouterLink to="/">Home</RouterLink>
         </li>
         <li className="hover:underline md:text-xl m-4">
-          <Link to="about" smooth={true} duration={500}>
-            Create
-          </Link>
+          <RouterLink to="/create">Create</RouterLink>
         </li>
         <li className="hover:underline md:text-xl m-4">
-          <Link to="skills" smooth={true} duration={500}>
-            Dashboard
-          </Link>
+          <RouterLink to="/dashboard">Dashboard</RouterLink>
         </li>
         {/* conditionally render "Login" or "Logout" link based on login status */}
         {loggedIn ? (
           <li className="hover:underline md:text-xl m-4">
-            <Link to="/" onClick={() => setLoggedIn(false)}>
+            <RouterLink to="/" onClick={() => setLoggedIn(false)}>
               Logout
-            </Link>
+            </RouterLink>
           </li>
         ) : (
           <li className="hover:underline md:text-xl m-4">
-            <Link to="projects" smooth={true} duration={500}>
-              Login
-            </Link>
+            <RouterLink to="/login">Login</RouterLink>
           </li>
         )}
       </ul>
@@ -72,37 +66,35 @@ const Navbar = () => {
         }
       >
         <li className="py-3 text-2xl md:text-4xl hover:underline">
-          <Link onClick={handleClick} to="home" smooth={true} duration={500}>
+          <RouterLink onClick={handleClick} to="/">
             Home
-          </Link>
+          </RouterLink>
         </li>
         <li className="py-3 text-2xl md:text-4xl hover:underline">
-          <Link onClick={handleClick} to="about" smooth={true} duration={500}>
+          <RouterLink onClick={handleClick} to="/create">
             Create
-          </Link>
+          </RouterLink>
         </li>
         <li className="py-3 text-2xl md:text-4xl hover:underline">
-          <Link
+          <RouterLink
             onClick={handleClick}
-            to="skills"
+            to="/dashboard"
             smooth={true}
             duration={500}
             offset={-80}
           >
             Dashboard
-          </Link>
+          </RouterLink>
         </li>
         {loggedIn ? (
           <li className="py-3 text-2xl md:text-4xl hover:underline">
-            <Link to="/" onClick={() => setLoggedIn(false)}>
+            <RouterLink to="/" onClick={() => setLoggedIn(false)}>
               Logout
-            </Link>
+            </RouterLink>
           </li>
         ) : (
           <li className="py-3 text-2xl md:text-4xl hover:underline">
-            <Link to="projects" smooth={true} duration={500}>
-              Login
-            </Link>
+            <RouterLink to="/login">Login</RouterLink>
           </li>
         )}
       </ul>
