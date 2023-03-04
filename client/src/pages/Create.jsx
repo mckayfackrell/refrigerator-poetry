@@ -10,7 +10,7 @@ const Create = () => {
               Create
             </h1>
             <p className="py-4 max-w-[700px] text-1xl lg:text-2xl">
-              This is where a post will go
+              This is where a user can create a new post
             </p>
           </div>
         </div>
