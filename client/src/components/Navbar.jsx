@@ -32,7 +32,7 @@ const Navbar = () => {
           <RouterLink to="/">Home</RouterLink>
         </li>
         <li className="hover:underline md:text-xl m-4">
-          <RouterLink to="/create">Create</RouterLink>
+          <RouterLink to="/post">Create</RouterLink>
         </li>
         <li className="hover:underline md:text-xl m-4">
           <RouterLink to="/dashboard">Dashboard</RouterLink>
@@ -79,9 +79,6 @@ const Navbar = () => {
           <RouterLink
             onClick={handleClick}
             to="/dashboard"
-            smooth={true}
-            duration={500}
-            offset={-80}
           >
             Dashboard
           </RouterLink>
@@ -100,8 +97,10 @@ const Navbar = () => {
       </ul>
 
       {/* footer */}
-      <footer class="fixed bottom-0 left-0 z-20 w-full p-2 bg-[#ffffff]md:flex md:items-center md:justify-between md:p-3">
-        <span class="text-sm text-black sm:text-center dark:black">© 2023</span>
+      <footer className="fixed bottom-0 left-0 z-20 w-full p-2 bg-[#ffffff]md:flex md:items-center md:justify-between md:p-3">
+        <span className="text-sm text-black sm:text-center dark:black">
+          © 2023
+        </span>
       </footer>
     </div>
   );

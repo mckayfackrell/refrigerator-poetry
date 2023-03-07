@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../utils/queries';
-import UserPosts from './UserPosts';
+import { useQuery } from "@apollo/client";
+import { QUERY_POSTS } from "../utils/queries";
+import UserPosts from "./UserPosts";
 
 const Home = () => {
   /* const { loading, data } = useQuery(QUERY_POSTS, {
@@ -9,11 +9,7 @@ const Home = () => {
   }); */
 
   // const [allPosts, { error }] = useQuery(QUERY_POSTS);
-  
-  
-  
-  
-  
+
   const { loading, data } = useQuery(QUERY_POSTS);
 
   const postList = data?.allPosts || [];
@@ -26,11 +22,9 @@ const Home = () => {
         <h1>Fridge Poetry</h1>
       </div>
       <div className="card-body m-5">
-          { loading }
-          <UserPosts postList={postList} />
-          
+        {loading}
+        <UserPosts postList={postList} />
       </div>
-      
     </div>
   );
 };
