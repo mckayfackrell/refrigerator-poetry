@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../assets/logo.png";
@@ -77,10 +76,7 @@ const Navbar = () => {
           </RouterLink>
         </li>
         <li className="py-3 text-2xl md:text-4xl hover:underline">
-          <RouterLink
-            onClick={handleClick}
-            to="/dashboard"
-          >
+          <RouterLink onClick={handleClick} to="/dashboard">
             Dashboard
           </RouterLink>
         </li>
@@ -104,36 +100,6 @@ const Navbar = () => {
         </span>
       </footer>
     </div>
-=======
-import React from "react";
-// import Link from "link-react";
-
-const Navbar = () => {
-  return (
-    <header className="bg-gray-50">
-      <div className="xl:container xl:mx-auto flex flex-col items-center sm:flex-row sm:justify-between text-center py-3">
-        <div className="md:flex-none w-96 order-2 sm:order-1 flex justify-center py-4 sm:py-0">
-          <img src="//link to icon" alt="" />
-        </div>
-        <div className="shrink w-80 sm:order-2">
-          <a className="font-bold uppercase text-3xl">Refrigerator Poetry</a>
-        </div>
-        <div className="w-96 order-3 flex justify-center">
-          <div className="flex gap-6">
-            {/* <Link href={"/"}>
-              <a>Home</a>
-            </Link>
-            <Link href={"/dashboard"}>
-              <a>Dashboard</a>
-            </Link>
-            <Link href={"/login"}>
-              <a>Login</a>
-            </Link> */}
-          </div>
-        </div>
-      </div>
-    </header>
->>>>>>> feature/login
   );
 };
 
