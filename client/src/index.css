@@ -45,6 +45,16 @@ select {
   border-radius: 0.3rem;
 }
 
+.container {
+  margin:auto; 
+}
+
+input[type="text"] {
+  border: 1px solid #1a1a1a;
+  padding-left:10px;
+  padding-right:10px;
+}
+
 .btn {
   background-color:var(--main-accent);
   color:#fff;

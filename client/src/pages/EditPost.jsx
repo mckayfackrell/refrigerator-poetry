@@ -127,12 +127,13 @@ const EditPost = (props) => {
 
   return (
     <div className="poem-interface-outer">
+      <main>
       <div className="create-a-post container">
         <div className="collapse-outer">
           <h3 className="collapse open">CLOSE X</h3>
           <div id="words-finder" className="collapse-content">
             <form id="words-finder-form" onSubmit={getWordsFromAPI}>
-              <div className="form-block display-flex justify-space-between query-builder form-group">
+              <div className="form-block display-flex justify-space-between query-builder form-group grid gap-2 grid-cols-4">
                 <h3>FIND WORDS:</h3>
 
                 <select
@@ -233,6 +234,7 @@ const EditPost = (props) => {
       </div>
 
       {error && <div>Something went wrong...</div>}
+    </main>
     </div>
   );
 };
