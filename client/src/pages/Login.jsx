@@ -9,6 +9,10 @@ import magnetImg from "../assets/magnet.jpg";
 
 export default function Login(props) {
 
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
@@ -58,9 +62,18 @@ export default function Login(props) {
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
+                <div>
+                  <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                    Logout
+                  </button>
+                </div>
+                
               </p>
+              
             ) : (
 
+                            
+              
         <form onSubmit={handleFormSubmit} className="max-w-[400px] w-full mx-auto bg-white p-8">
           <h2 className="text-4xl font-bold text-center py-4">
             Refrigerator Poetry
@@ -82,7 +95,8 @@ export default function Login(props) {
           </p> */}
           <p className="text-center mt-8">Not a member? <Link to='/signup'>Sign up now</Link>.</p>
         </form>
-            )}
+          
+        )}
 
         {error && (
               <div className="my-3 p-3 bg-danger text-white">

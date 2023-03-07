@@ -13,7 +13,7 @@ const resolvers = {
     postById: async (_parent, { _id }) => {
       return Post.findById(_id);
     },
-    userById: async (_parent, { _id }) => {
+    userbyid: async (_parent, { _id }) => {
       return User.findById(_id);
     },
     // userposts: async (parent, { _id }) => {

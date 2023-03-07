@@ -20,6 +20,22 @@ export const QUERY_POSTS = gql`
   }
 `;
 
+export const QUERY_USERBYID = gql`
+  query userbyid {
+    userbyid {
+      _id
+      username
+      email
+      posts {
+        _id
+        title
+        description
+        createdAt
+      }
+    }
+  }
+`;
+
 export const QUERY_TECH = gql`
   query tech {
     tech {

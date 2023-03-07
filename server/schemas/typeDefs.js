@@ -24,7 +24,7 @@ const typeDefs = gql`
     allPosts: [Post]
     allUsers: [User]
     postById(_id: ID!): Post
-    userById(_id: ID!): User
+    userbyid(_id: ID!): User
   }
 
   type Mutation {
