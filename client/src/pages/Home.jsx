@@ -1,5 +1,3 @@
-
-
 // // import { Link } from 'react-router-dom';
 // import { useQuery } from "@apollo/client";
 // import { QUERY_POSTS } from "../utils/queries";
@@ -53,14 +51,6 @@
   </Link>
 </li> */
 
-
-
-
-
-
-
-
-
 // import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
@@ -86,10 +76,6 @@ const Home = () => {
   );
 };
 export default Home;
-
-
-
-
 
 /* <div className="card-footer text-center m-3">
         <h2>Ready to create a new matchup?</h2>
