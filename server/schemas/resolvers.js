@@ -1,4 +1,6 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { User, Post } = require("../models");
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -47,6 +49,27 @@ const resolvers = {
       );
       return updatedUser;
     },
+
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+    },
+    
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if(!user) {
+        throw new AuthenticationError('No user with this email');
+      }
+      const correctPw = await user.isCorrectPassword(password);
+
+      if(!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+      return { token, user };
+    }
 
     //   createUser: async (parent, args) => {
     //     const newUser = await User.create(args);
