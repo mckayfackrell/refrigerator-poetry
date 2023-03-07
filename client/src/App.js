@@ -6,7 +6,6 @@ import { setContext } from '@apollo/client/link/context';
 import Home from "./pages/Home.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import EditPost from "./pages/EditPost.jsx";
-import Register from "./pages/Register.jsx";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar.jsx";
@@ -114,7 +113,6 @@ function App() {
                 />
               }
             />
-            <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<NotFound />} />
