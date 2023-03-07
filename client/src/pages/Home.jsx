@@ -5,14 +5,12 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
   const postList = data?.allPosts || [];
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
+    <main>
+      <div className="container blogroll-posts blogroll-posts-home">
+          {loading}
+          <UserPosts postList={postList} />
       </div>
-      <div className="card-body m-5">
-        {loading}
-        <UserPosts postList={postList} />
-      </div>
-    </div>
+    </main>
   );
 };
 export default Home;
