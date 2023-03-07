@@ -71,7 +71,7 @@ const Navbar = () => {
           </RouterLink>
         </li>
         <li className="py-3 text-2xl md:text-4xl hover:underline">
-          <RouterLink onClick={handleClick} to="/create">
+          <RouterLink onClick={handleClick} to="/post">
             Create
           </RouterLink>
         </li>
