@@ -1,37 +1,37 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { useParams } from 'react-router-dom';
+import { QUERY_USERBYID } from "../utils/queries";
+import UserPosts from "./UserPosts";
 
-const Dashboard = ({ postList }) => {
+
+const Dashboard = () => {
   // if (!postList.length) {
   //   return <h3>No Poetry Yet</h3>;
   // }
 
+  const { userId } = useParams();
+  const { loading, data } = useQuery(QUERY_USERBYID, {
+    variables: { id: userId }
+  });
+  const postList = data?.allPosts || [];
+ 
+
   return (
-    <div name="home" className="w-full h-screen bg-[#ffffff]">
-      <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <div className="flex flex-col justify-center">
-            <h1 className="text-4xl sm:text-7xl font-bold text-black">
-              Dashboard
-            </h1>
-            <p className="py-4 max-w-[700px] text-1xl lg:text-2xl">
-              This is where a user can view all their posts
-            </p>
-            <div>
-              {postList &&
-                postList.map((poem) => (
-                  <div key={poem._id} className="card mb-3">
-                    <h4 className="card-header bg-primary text-light p-2 m-0">
-                      {poem.postTitle}
-                    </h4>
-                    <p>{poem.description}</p>
-                  </div>
-                ))}
-            </div>
-          </div>
+    <main>
+        <div className="container blogroll-posts blogroll-posts-home">
+          <h1 className="text-4xl sm:text-4xl font-bold text-black pt-4">
+            Your Posts
+          </h1>
+            {loading}
+            <UserPosts postList={postList} />
         </div>
-      </div>
-    </div>
+    </main>
   );
 };
 
 export default Dashboard;
+    
+
+
+
