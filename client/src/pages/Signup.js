@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 import magnetImg from "../assets/magnet.jpg";
 
-export default function Login(props) {
+export default function Signup() {
 
-
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -28,22 +27,15 @@ export default function Login(props) {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await login({
+      const { data } = await addUser({
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
-
-    // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
   };
-
 
   return (
     <div className="relative w-full h-screen bg-zinc-900/90">
@@ -66,6 +58,10 @@ export default function Login(props) {
             Refrigerator Poetry
           </h2>
           <div className="flex flex-col mb-4">
+            <label>Username</label>
+            <input name="username" onChange={handleChange} value={formState.name} className="border relative bg-gray-100 p-2" type="text" />
+          </div>
+          <div className="flex flex-col mb-4">
             <label>Email</label>
             <input name="email" onChange={handleChange} value={formState.email} className="border relative bg-gray-100 p-2" type="text" />
           </div>
@@ -80,7 +76,7 @@ export default function Login(props) {
             <input className="mr-2" type="checkbox" />
             Remember Me
           </p> */}
-          <p className="text-center mt-8">Not a member? <Link to='/signup'>Sign up now</Link>.</p>
+          <p className="text-center mt-8">Already a member? <Link to='/login'>Log in now</Link>.</p>
         </form>
             )}
 
@@ -94,3 +90,4 @@ export default function Login(props) {
     </div>
   );
 }
+
