@@ -18,6 +18,7 @@
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@apollo/client": "^3.7.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -30,5 +31,10 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.9",
     "web-vitals": "^2.1.4"
+=======
+    "icons": "^1.0.0",
+    "link-react": "^3.0.0",
+    "react": "^18.2.0"
+>>>>>>> feature/login
   }
 }
