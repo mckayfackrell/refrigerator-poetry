@@ -9,16 +9,17 @@
 }
 
 :root {
-  --main-neutral:#f3f3f3;
-  --main-dark:#73d0de;
-  --main-dark-highlight:#7adceb;
-  --main-accent:#cdd3d4;
-  --main-accent-highlight:#dadfe0;
-  --color-pop:#f5cf25;
-  --color-pop-highlight:#ffd726;
-  --main-white:#fff;
+  --main-neutral: #f3f3f3;
+  --main-dark: #154c79;
+  --main-dark-highlight: #7adceb;
+  --main-accent: #cdd3d4;
+  --main-accent-highlight: #dadfe0;
+  --color-pop: #f5cf25;
+  --color-pop-highlight: #ffd726;
+  --main-white: #fff;
   --main-black: #333;
 }
+
 /* 
 body {
   background-color: var(--main-neutral);
@@ -26,7 +27,7 @@ body {
 } */
 
 h3 {
-  font-size:1.5rem;
+  font-size: 1.5rem;
 }
 
 a {
@@ -46,265 +47,267 @@ select {
 }
 
 .container {
-  margin:auto; 
+  margin: auto;
 }
 
 input[type="text"],
 input[type="password"] {
   border: 1px solid #1a1a1a;
-  padding-left:10px;
-  padding-right:10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .btn {
-  background-color:var(--main-accent);
-  color:#fff;
+  background-color: var(--main-accent);
+  color: #fff;
   white-space: nowrap;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .btn:hover {
   background-color: var(--main-accent-highlight);
-  color:#fff;
+  color: #fff;
 }
 
 .btn-submit,
 #create-post {
-  background-color:var(--color-pop);
+  background-color: var(--color-pop);
 }
 
 .btn-submit:hover,
 #create-post:hover {
-  background-color:var(--color-pop-highlight);
+  background-color: var(--color-pop-highlight);
 }
 
 #nav-logout.btn:hover {
   color: var(--main-dark);
 }
 
-nav a, nav .btn {
-  margin:0 0 0 25px;
+nav a,
+nav .btn {
+  margin: 0 0 0 25px;
   color: var(--main-black);
-  background:none;
-  padding:0;
+  background: none;
+  padding: 0;
 }
 
-nav a:hover, nav .btn:hover {
-  background:none;
-  cursor:pointer;
-  text-decoration:underline;
+nav a:hover,
+nav .btn:hover {
+  background: none;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .title-bar {
   background-color: var(--main-dark);
-  color: var(--main-white)
+  color: var(--main-white);
 }
 
-main { 
-  padding-bottom:80px; 
+main {
+  padding-bottom: 80px;
 }
 
 main .registration-form-outer,
 main .login-form-outer {
   background-color: var(--main-white);
-  border-radius:6px;
+  border-radius: 6px;
   border: 1px solid #484848;
 }
 
 main .blogroll-post {
   background-color: var(--main-white);
-  margin:40px 0 10px; 
-  border-radius:6px;
-  overflow:hidden;
+  margin: 40px 0 10px;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-main .blogroll-post h3.post-title {
-  background-color: var(--main-dark-highlight);
+.blogroll-post h3.post-title {
+  background-color: #154c79;
   color: var(--main-white);
-  font-size:1.25rem;
-  padding:10px 25px;
+  font-size: 1.25rem;
+  padding: 10px 25px;
 }
 
 main .blogroll-post h3.post-title .meta {
-  font-weight:normal; 
-  font-size:.8rem;
+  font-weight: normal;
+  font-size: 0.8rem;
 }
 
 main .blogroll-post .post-content {
-  padding:15px 25px 10px;
-  text-align:center;
+  padding: 15px 25px 10px;
+  text-align: center;
 }
 
 main .blogroll-post .post-content .lineBR {
-  display:none;
+  display: none;
 }
 
 main .blogroll-post .post-comments {
-  padding:10px 25px;
+  padding: 10px 25px;
 }
 
 main .blogroll-post .post-comments ul {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 main .blogroll-post .post-comments ul li {
-  list-style:none;
-  margin:10px 0 5px;
+  list-style: none;
+  margin: 10px 0 5px;
   background-color: var(--main-neutral);
-  padding:10px 25px;
-  border-radius:12px 12px 12px 0;
+  padding: 10px 25px;
+  border-radius: 12px 12px 12px 0;
 }
 
 main .blogroll-post .post-comments ul li .meta {
-  padding-top:10px;
-  font-size:.8rem;
+  padding-top: 10px;
+  font-size: 0.8rem;
 }
 
-main .blogroll-posts #create-post { 
-  margin-top:20px;
-  cursor:pointer; 
+main .blogroll-posts #create-post {
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 main input#newpost-title {
-  font-weight:bold;
-  box-shadow:0 1px 3px rgba(0,0,0,0.3);
-  border:none;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
 }
 
 main .blogroll-posts .post-buttons,
 main .post-comment-button,
 main .post-comment-form-outer {
-  padding:0 25px 15px 25px;
+  padding: 0 25px 15px 25px;
 }
 
 main .post-comment-button {
-  text-align:center;
+  text-align: center;
 }
 
 main .post-comment-form-outer {
-  display:none;
+  display: none;
 }
 
 main .blogroll-posts .post-buttons .btn {
-  margin-left:10px;
+  margin-left: 10px;
 }
 
-main .user-login, 
+main .user-login,
 main .user-registration,
 main .create-a-post {
-  padding:0; 
+  padding: 0;
 }
 
-main .user-login form a, 
+main .user-login form a,
 main .user-registration form a,
 main .create-a-post form a {
-  font-size:.8rem;
-  font-weight:bold;
-  text-decoration:underline;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 main .create-a-post textarea {
-  height:160px;
+  height: 160px;
 }
 
 main .query-builder .btn,
 main .create-a-post-form .btn,
 main .update-a-post-form .btn {
-  margin:0 0 0.625rem 0;
+  margin: 0 0 0.625rem 0;
 }
 
 main .query-builder .btn {
   white-space: nowrap;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 main .query-builder input,
 main .query-builder select,
 main .create-a-post-form input,
 main .update-a-post-form input {
-  margin:0 10px 10px 0;
+  margin: 0 10px 10px 0;
 }
 
 main .other-options button {
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
 main .collapse-outer {
-  box-shadow:0 1px 5px rgb(0,0,0,0.3);
-  border-radius:0.3rem;
-  margin:25px 0 0 0;
-  overflow:hidden;
+  box-shadow: 0 1px 5px rgb(0, 0, 0, 0.3);
+  border-radius: 0.3rem;
+  margin: 25px 0 0 0;
+  overflow: hidden;
 }
 
 main h3.collapse {
-  background-color:var(--main-dark);
+  background-color: var(--main-dark);
   color: var(--main-white);
-  padding:10px 25px;
-  margin-bottom:0px;
-  text-align:right;
-  font-size:1rem;
+  padding: 10px 25px;
+  margin-bottom: 0px;
+  text-align: right;
+  font-size: 1rem;
 }
 
-main .collapse-content { 
-  padding:0 25px 10px; 
+main .collapse-content {
+  padding: 0 25px 10px;
   background-color: var(--main-white);
 }
 
 main .collapse-content .form-group {
-  padding-top:20px;
-  margin-top:0px;
+  padding-top: 20px;
+  margin-top: 0px;
 }
 
 main #words-finder-form h3 {
-  white-space:nowrap;
-  margin:0 25px 0 0;
-  padding:0;
-  line-height:46px;
+  white-space: nowrap;
+  margin: 0 25px 0 0;
+  padding: 0;
+  line-height: 46px;
 }
 
 main #word-list-static {
-  padding-top:10px;
+  padding-top: 10px;
 }
 
 main #poem-container {
-  background-color:var(--main-white);
-  min-height:200px;
-  margin:20px 0 10px 0; 
-  border-radius:0.3rem;
-  box-shadow:0 1px 5px rgb(0,0,0,0.3);
-  padding:20px 25px;
-  text-align:center;
+  background-color: var(--main-white);
+  min-height: 200px;
+  margin: 20px 0 10px 0;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 5px rgb(0, 0, 0, 0.3);
+  padding: 20px 25px;
+  text-align: center;
 }
 
 main #poem-container.empty {
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
-  font-size:1.35rem;
-  color:#ddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.35rem;
+  color: #ddd;
 }
 
 .magnet {
-  padding:5px 12px;
-  border:2px solid var(--main-black);
+  padding: 5px 12px;
+  border: 2px solid var(--main-black);
   color: var(--main-black);
   background-color: var(--main-white);
   border-radius: 6px;
-  font-size:1.35rem;
-  text-transform:uppercase;
-  margin:0 10px 10px 0;
-  display:inline-block;
-  box-shadow:1px 1px 4px rgba(0,0,0,0.3);
-  transition:background-color 0.3s ease;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: 0 10px 10px 0;
+  display: inline-block;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
 }
 
 main #word-list-static .magnet:hover,
 main #word-list-dynamic .magnet:hover,
 main #poem-container .magnet:hover {
   background-color: var(--main-accent-highlight);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 main #poem-container .magnet {
@@ -315,7 +318,6 @@ main #poem-container .magnet:hover {
 }
 
 .btn.floating {
-  border:3px solid #fff;
-  box-shadow:0 1px 3px rgba(0,0,0,0.3);
+  border: 3px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-

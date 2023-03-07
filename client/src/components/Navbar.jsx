@@ -94,11 +94,11 @@ const Navbar = () => {
       </ul>
 
       {/* footer */}
-      <footer className="fixed bottom-0 left-0 z-20 w-full p-2 bg-[#ffffff]md:flex md:items-center md:justify-between md:p-3">
+      {/* <footer className="fixed bottom-0 left-0 z-20 w-full p-2 bg-[#ffffff]md:flex md:items-center md:justify-between md:p-3">
         <span className="text-sm text-black sm:text-center dark:black">
           © 2023
         </span>
-      </footer>
+      </footer> */}
     </div>
   );
 };
