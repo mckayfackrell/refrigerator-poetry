@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Create from "./pages/Create";
+import EditPost from "./pages/EditPost";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/NotFound";
-import EditPost from "./pages/EditPost";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -82,10 +81,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
             <Route
               path="/post"
               element={
@@ -95,6 +90,9 @@ function App() {
                 />
               }
             />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
             <Route path="/post/:id" element={<EditPost />} />
           </Routes>
         </div>

@@ -10,6 +10,16 @@ export const QUERY_POSTS = gql`
   }
 `;
 
+export const QUERY_POSTS = gql`
+  query AllPosts {
+    allPosts {
+      _id
+      postTitle
+      description
+    }
+  }
+`;
+
 export const QUERY_TECH = gql`
   query tech {
     tech {

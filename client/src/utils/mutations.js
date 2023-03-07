@@ -10,6 +10,17 @@ export const CREATE_POST = gql`
   }
 `;
 
+
+export const CREATE_POST =  gql`
+mutation CreatePost($description: String!, $postTitle: String) {
+  createPost(description: $description, postTitle: $postTitle) {
+    description
+    postTitle
+    _id
+  }
+}
+`;
+
 export const CREATE_MATCHUP = gql`
   mutation createMatchup($tech1: String!, $tech2: String!) {
     createMatchup(tech1: $tech1, tech2: $tech2) {
