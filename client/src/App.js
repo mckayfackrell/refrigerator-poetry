@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import EditPost from "./pages/EditPost";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Navbar from "./components/Navbar";
-import NotFound from "./pages/NotFound";
+import Home from "./pages/Home.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import EditPost from "./pages/EditPost.jsx";
+import Register from "./pages/Register.jsx";
+import Login from "./pages/Login.jsx";
+import Navbar from "./components/Navbar.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 const client = new ApolloClient({
   uri: "/graphql",
