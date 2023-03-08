@@ -9,10 +9,18 @@ const typeDefs = gql`
     posts: [String]
   }
 
+  type Comment {
+    _id: ID!
+    comment: String!
+    createdAt: String
+  }
+
   type Post {
     _id: ID!
     postTitle: String
     description: String!
+    createdAt: String
+    comments: [Comment]
   }
 
   type Auth {

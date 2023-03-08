@@ -16,6 +16,12 @@ export const QUERY_POSTS = gql`
       _id
       postTitle
       description
+      createdAt
+      comments {
+        _id
+        comment
+        createdAt
+      }
     }
   }
 `;
@@ -32,27 +38,6 @@ export const QUERY_USERBYID = gql`
         description
         createdAt
       }
-    }
-  }
-`;
-
-export const QUERY_TECH = gql`
-  query tech {
-    tech {
-      _id
-      name
-    }
-  }
-`;
-
-export const QUERY_MATCHUPS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
-      _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
     }
   }
 `;
