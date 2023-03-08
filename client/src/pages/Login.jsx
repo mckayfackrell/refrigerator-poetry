@@ -46,14 +46,6 @@ export default function Login(props) {
     });
   };
 
-<<<<<<< HEAD
-/*   // navigate to signup page
-  const handleSignUpClick = () => {
-    ("/signup");
-  }; */
-
-=======
->>>>>>> main
   return (
     <div className="relative w-full h-screen bg-zinc-900/90">
       {/* <img
