@@ -1,22 +1,43 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_TECH = gql`
-  query tech {
-    tech {
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
       _id
-      name
+      username
+      email
     }
   }
 `;
 
-export const QUERY_MATCHUPS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+export const QUERY_POSTS = gql`
+  query AllPosts {
+    allPosts {
       _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
+      postTitle
+      description
+      createdAt
+      comments {
+        _id
+        comment
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_USERBYID = gql`
+  query userbyid {
+    userbyid {
+      _id
+      username
+      email
+      posts {
+        _id
+        title
+        description
+        createdAt
+      }
     }
   }
 `;
