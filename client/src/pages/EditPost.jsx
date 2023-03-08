@@ -5,7 +5,6 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutations";
 import API from "../utils/API";
 import WordList from "./WordList";
-import magnetImg from "../assets/magnet.jpg";
 
 const EditPost = (props) => {
   // Get words from Datamuse API
@@ -127,15 +126,7 @@ const EditPost = (props) => {
   };
 
   return (
-    <main
-      style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${magnetImg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        height: "100%",
-      }}
-    >
+    <main className="relative w-full h-screen wallpaper">
       <div className="poem-interface-outer">
         <main>
           <div className="create-a-post container">
@@ -226,28 +217,35 @@ const EditPost = (props) => {
                 START OVER
               </button>
             </div>
-
-            <form
-              className="form update-a-post-form"
-              data-id="usethepostidforthis"
-              data-func="save"
-              onSubmit={handleFormSubmit}
-            >
-              <div className="form-group display-flex justify-content-space-between">
-                <input
-                  className="form-input"
-                  type="text"
-                  id="newpost-title"
-                  name="postTitle"
-                  placeholder="title of your poem"
-                  onChange={handleInputChange}
-                />
-                <input type="hidden" name="description" />
-                <button className="btn btn-submit floating" type="submit">
-                  SAVE
-                </button>
-              </div>
-            </form>
+            <div className="text-center">
+              <form
+                className="form update-a-post-form"
+                data-id="usethepostidforthis"
+                data-func="save"
+                onSubmit={handleFormSubmit}
+              >
+                <div className="form-group">
+                  <input
+                    className="form-input w-32 h-14 md:w-96 mx-auto"
+                    type="text"
+                    id="newpost-title"
+                    name="postTitle"
+                    placeholder="Poem Title"
+                    onChange={handleInputChange}
+                  />
+                  <input type="hidden" name="description" />
+                </div>
+                <div className="text-center">
+                  <button
+                    className="btn btn-submit"
+                    type="submit"
+                    style={{ border: "3px solid white" }}
+                  >
+                    SAVE
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
 
           {error && <div>Something went wrong...</div>}
