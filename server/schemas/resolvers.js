@@ -22,8 +22,14 @@ const resolvers = {
     // },
   },
   Mutation: {
-    createPost: async (_parent, args) => {
-      const newPost = await Post.create(args);
+    createPost: async (_parent, { userId, postTitle, description }) => {
+      const newPost = await Post.create({postTitle, description});
+      const assignedPost = await User.findByIdAndUpdate(
+        userId, 
+        { $addToSet: { posts: newPost._id }},
+        { new: true }
+        );
+
       return newPost;
     },
 
@@ -62,6 +68,7 @@ const resolvers = {
         throw new AuthenticationError('No user with this email');
       }
       const correctPw = await user.isCorrectPassword(password);
+      console.log("correctPw " + correctPw);
 
       if(!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
