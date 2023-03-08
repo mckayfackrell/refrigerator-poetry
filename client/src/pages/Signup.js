@@ -5,8 +5,6 @@ import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-import magnetImg from "../assets/magnet.jpg";
-
 export default function Signup() {
   const [formState, setFormState] = useState({
     username: "",
@@ -42,12 +40,12 @@ export default function Signup() {
 
   return (
     <div className="relative w-full h-screen bg-zinc-900/90">
-      <img
+      {/* <img
         className="absolute w-full h-full object-cover mix-blend-overlay"
         src={magnetImg}
         alt="/"
-      />
-      <div className="flex justify-center items-center h-full">
+      /> */}
+      <div className="flex justify-center items-center h-full wallpaper">
         {data ? (
           <p>
             Success! You may now head{" "}
@@ -94,7 +92,7 @@ export default function Signup() {
             </div>
             <button
               type="submit"
-              className="w-full py-3 mt-8 bg-slate-600 relative text-white"
+              className="w-full py-3 mt-8 bg-[#154c79] relative text-white"
             >
               Sign In
             </button>
