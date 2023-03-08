@@ -298,6 +298,16 @@ main #poem-container.empty {
   color: #ddd;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #ffffff;
+  z-index: 9999; /* set a high z-index value */
+}
+
 .magnet {
   padding: 5px 12px;
   border: 2px solid var(--main-black);

@@ -14,6 +14,7 @@ const Dashboard = () => {
     variables: { id: userId },
   });
   const postList = data?.allPosts || [];
+ 
 
   return (
     <main className="relative w-full h-screen wallpaper">

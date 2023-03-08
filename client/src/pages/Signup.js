@@ -5,7 +5,6 @@ import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-
 export default function Signup() {
   const [formState, setFormState] = useState({
     username: "",
@@ -47,7 +46,6 @@ export default function Signup() {
         alt="/"
       /> */}
       <div className="flex justify-center items-center h-full wallpaper">
-        
         {data ? (
           <p>
             Success! You may now head{" "}
