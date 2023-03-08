@@ -71,12 +71,12 @@ input[type="password"] {
 
 .btn-submit,
 #create-post {
-  background-color: var(--color-pop);
+  background-color: #154c79;
 }
 
 .btn-submit:hover,
 #create-post:hover {
-  background-color: var(--color-pop-highlight);
+  background-color: #154c79;
 }
 
 #nav-logout.btn:hover {
@@ -311,7 +311,8 @@ main #poem-container .magnet:hover {
 }
 
 main #poem-container .magnet {
-  background-color: var(--main-dark-highlight);
+  background-color: #154c79;
+  color: white;
 }
 main #poem-container .magnet:hover {
   background-color: var(--main-accent-highlight);
