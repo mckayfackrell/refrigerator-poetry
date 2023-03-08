@@ -47,10 +47,10 @@ export default function Login(props) {
     });
   };
 
-  // navigate to signup page
+/*   // navigate to signup page
   const handleSignUpClick = () => {
     ("/signup");
-  };
+  }; */
 
   return (
     <div className="relative w-full h-screen bg-zinc-900/90">
@@ -106,14 +106,14 @@ export default function Login(props) {
             <input className="mr-2" type="checkbox" />
             Remember Me
           </p> */}
-            <p className="text-center mt-8">
+            <div className="text-center mt-8">
               Not a member?{" "}
               <div>
                 <RouterLink className="text-black underline" to="/signup">
                   Sign up now
                 </RouterLink>
               </div>
-            </p>
+            </div>
           </form>
         )}
       </div>

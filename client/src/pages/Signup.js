@@ -98,7 +98,7 @@ export default function Signup() {
             >
               Sign In
             </button>
-            <p className="text-center mt-8">
+            <div className="text-center mt-8">
               Already a member?{" "}
               <div>
                 <RouterLink
@@ -108,7 +108,7 @@ export default function Signup() {
                   Log in now
                 </RouterLink>
               </div>
-            </p>
+            </div>
           </form>
         )}
       </div>
