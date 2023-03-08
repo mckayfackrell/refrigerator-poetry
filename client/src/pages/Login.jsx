@@ -5,7 +5,6 @@ import { LOGIN_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-
 export default function Login(props) {
   const logout = (event) => {
     event.preventDefault();
@@ -48,11 +47,6 @@ export default function Login(props) {
 
   return (
     <div className="relative w-full h-screen bg-zinc-900/90">
-      {/* <img
-        className="absolute w-full h-full object-cover mix-blend-overlay"
-        src={magnetImg}
-        alt="/"
-      /> */}
       <div className="flex justify-center items-center h-full wallpaper">
         {data ? (
           <p>
