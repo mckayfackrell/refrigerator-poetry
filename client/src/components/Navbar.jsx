@@ -146,6 +146,7 @@ const Navbar = () => {
           © 2023
         </span>
       </footer> */}
+      
     </div>
   );
 };
