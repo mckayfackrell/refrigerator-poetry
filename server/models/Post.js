@@ -23,7 +23,10 @@ const postSchema = new Schema(
       default: Date.now,
       get: dateFormat,
     },
-    comments: [commentSchema],
+    author: {
+      type: String
+    },
+    comments: [commentSchema]
   },
   {
     toJSON: {
