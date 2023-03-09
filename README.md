@@ -3,14 +3,21 @@
 Introducing Refrigerator Poetry - an app that empowers users to compose and distribute their own unique poems. By signing into their account, users can not only create and share their work, but also engage with other poets by commenting and upvoting their pieces. With this platform, individuals can unleash their creativity and be inspired by the ingenuity of others.
 
 ## URL and Screenshots
-[Refrigerator Poetry ](url)
+[Refrigerator Poetry ](https://refrigerator-poetry.herokuapp.com/login)
 
-| Homepage | Account | New Post | Mobile |
+| Homepage | Dashboard | New Post | Mobile |
 |---------|---------|---------|---------|
-|         |         |         |         |
+|      ![homepage](https://user-images.githubusercontent.com/110206514/224129114-f718e526-840f-4d11-b0e7-3abbb1f512ac.jpg)   |   ![dashboard](https://user-images.githubusercontent.com/110206514/224129119-094b5506-3977-4155-8ad1-d86754c93b22.jpg)      | ![newpost](https://user-images.githubusercontent.com/110206514/224129109-32728394-5fe9-4f49-a518-69961b26e358.jpg)        |    ![mobile](https://user-images.githubusercontent.com/110206514/224129122-6a22928f-7ca5-4abc-b1de-616c3632f13a.jpg)     |
+
+
+
+
+
+
+
 
 ## Usage
-The app, [Refrigerator Poetry](url), allows you to create, share, and enjoy poetry. To get started, you can create an account or log in. Once you've logged in, you can view your own posts and see the number of upvotes and comments they've received. You can also edit or delete your posts as needed.
+The app, [Refrigerator Poetry](https://refrigerator-poetry.herokuapp.com/login), allows you to create, share, and enjoy poetry. To get started, you can create an account or log in. Once you've logged in, you can view your own posts and see the number of upvotes and comments they've received. You can also edit or delete your posts as needed.
 
 To make a new post, you can choose words from the app's word bank or generate related words to get inspiration. You can drag and drop the words to create poetry. Once you've created your poem, you can post it to the feed, where others can read it, upvote it, and leave comments.
 
