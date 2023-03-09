@@ -7,9 +7,9 @@ import Auth from "../utils/auth";
 
 export default function Signup() {
   const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
   const [addUser, { data }] = useMutation(ADD_USER);
 
@@ -40,17 +40,14 @@ export default function Signup() {
 
   return (
     <div className="relative w-full h-screen bg-zinc-900/90">
-      {/* <img
-        className="absolute w-full h-full object-cover mix-blend-overlay"
-        src={magnetImg}
-        alt="/"
-      /> */}
       <div className="flex justify-center items-center h-full wallpaper">
         {data ? (
-          <p>
-            Success! You may now head{" "}
-            <RouterLink to="/">back to the homepage.</RouterLink>
-          </p>
+          <div className="max-w-[400px] w-full mx-auto bg-white p-8">
+            <p>
+              Success! You may now head{" "}
+              <RouterLink to="/">back to the homepage.</RouterLink>
+            </p>
+          </div>
         ) : (
           <form
             onSubmit={handleFormSubmit}
@@ -94,7 +91,7 @@ export default function Signup() {
               type="submit"
               className="w-full py-3 mt-8 bg-[#154c79] relative text-white"
             >
-              Sign In
+              Sign Up
             </button>
             <div className="text-center mt-8">
               Already a member?{" "}
