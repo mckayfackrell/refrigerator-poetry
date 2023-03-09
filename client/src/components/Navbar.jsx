@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../assets/logo.png";
 import { Link as RouterLink } from "react-router-dom";
+import Auth from '../utils/auth.js';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false); // new state variable to hold login status
   const handleClick = () => setNav(!nav);
+
+  //const isLoggedIn = Auth.loggedIn;
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
   return (
     // navbar
@@ -31,24 +39,63 @@ const Navbar = () => {
         <li className="hover:underline md:text-xl m-4">
           <RouterLink to="/">Home</RouterLink>
         </li>
-        <li className="hover:underline md:text-xl m-4">
-          <RouterLink to="/post">Create</RouterLink>
-        </li>
-        <li className="hover:underline md:text-xl m-4">
+
+        {Auth.loggedIn() ? (
+          <>
+            <li className="hover:underline md:text-xl m-4">
+              <RouterLink to="/post">Create</RouterLink>
+            </li>
+          </>
+        ) : (
+          <></>
+        )}
+
+        {Auth.loggedIn() ? (
+          <>
+            <li className="hover:underline md:text-xl m-4">
           <RouterLink to="/dashboard">Dashboard</RouterLink>
         </li>
+          </>
+        ) : (
+            <></>
+        )}
+        
         {/* conditionally render "Login" or "Logout" link based on login status */}
-        {loggedIn ? (
-          <li className="hover:underline md:text-xl m-4">
-            <RouterLink to="/" onClick={() => setLoggedIn(false)}>
+        
+        {Auth.loggedIn() ? (
+          <>
+            <li className="hover:underline md:text-xl m-4">
+            <RouterLink to="/" onClick={logout}>
               Logout
             </RouterLink>
-          </li>
+            </li>
+          </>
         ) : (
-          <li className="hover:underline md:text-xl m-4">
-            <RouterLink to="/login">Login</RouterLink>
-          </li>
+          <></>
         )}
+          
+          {!Auth.loggedIn() ? (
+          <>
+            <li 
+              className= "hover:underline md:text-xl m-4">
+              <RouterLink to="/login">Login</RouterLink>
+            </li>
+          </>
+        ) : (
+          <></>
+        )}
+
+        {!Auth.loggedIn() ? (
+          <>
+            <li 
+              className= "hover:underline md:text-xl m-4">
+              <RouterLink to="/signup">Sign Up</RouterLink>
+            </li>
+          </>
+        ) : (
+          <></>
+        )}
+        
       </ul>
 
       {/* hamburger */}

@@ -4,6 +4,7 @@ import { QUERY_USERBYID } from "../utils/queries";
 import UserPosts from "./UserPosts";
 import Auth from '../utils/auth.js';
 import magnetImg from "../assets/magnet.jpg";
+import { Link } from "react-router-dom";
 
 
 const Dashboard = () => {
@@ -44,7 +45,12 @@ const Dashboard = () => {
       <div className="container blogroll-posts blogroll-posts-home">
       <h3 className="bg-white p-3">Welcome, {user.data.username}!</h3>
         {loading}
-        <UserPosts userData={userData.posts} />
+        {userData ? (
+          <div className="bg-white p-5"><Link to="/post" className="hover:underline underline">Create your first poem</Link> to get started!</div>
+        ): (
+          <></>
+        )}
+        <UserPosts userData={userData} poemData={userData.posts} />
       </div>
     </main>
     );
@@ -62,7 +68,6 @@ const Dashboard = () => {
 
   return (
     <div>
-      here's the dashboard
     </div>
   );
 

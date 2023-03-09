@@ -12,18 +12,7 @@ const EditPost = (props) => {
   // Get words from Datamuse API
   //const [dynamicWordList, queryDatamuse] = useState('Use the form above to get started');
 
-  const [dynamicWordList, setResult] = useState([
-    { word: "snappy", score: 698, numSyllables: 2 },
-    { word: "scrappy", score: 697, numSyllables: 2 },
-    { word: "sappy", score: 619, numSyllables: 2 },
-    { word: "zappy", score: 397, numSyllables: 2 },
-    { word: "yappy", score: 384, numSyllables: 2 },
-    { word: "flappy", score: 364, numSyllables: 2 },
-    { word: "pappy", score: 318, numSyllables: 2 },
-    { word: "gappy", score: 307, numSyllables: 2 },
-    { word: "chappie", score: 296, numSyllables: 2 },
-    { word: "strappy", score: 210, numSyllables: 2 },
-  ]);
+  const [dynamicWordList, setResult] = useState([]);
   //const [searchTerm, setSearch] = useState('');
 
   const queryDatamuse = (query) => {
@@ -84,7 +73,12 @@ const EditPost = (props) => {
   // Update poemBody state
   function moveMagnet(word) {
     console.log(word);
-    const wrappedWord = '<span class="magnet">' + word + "</span>";
+
+    var wrappedWord = '<span class="magnet">' + word + '</span>';
+
+    if (word === "LINEBREAK") {
+        wrappedWord = '<span class="lineBR">X</span><br />';
+    } 
 
     if (word === "start-over") {
       writePoem(welcomeMsg);
@@ -128,11 +122,12 @@ const EditPost = (props) => {
       // was: variables: { ...formData },
       console.log("id: " + data.createPost._id);
 
-      // navigate(`/post/${data.createPost._id}`);
-      navigate(`/`);
+      
     } catch (err) {
       console.error(err);
     }
+    // navigate(`/post/${data.createPost._id}`);
+    navigate(`/`);
   };
 
   return (
@@ -228,7 +223,7 @@ const EditPost = (props) => {
 
             <div id="help-buttons" className="text-right">
               <button
-                className="btn floating col-3"
+                className="btn floating col-3 p-2"
                 data-func="start-over"
                 onClick={() => moveMagnet("start-over")}
               >
@@ -242,9 +237,9 @@ const EditPost = (props) => {
               data-func="save"
               onSubmit={handleFormSubmit}
             >
-              <div className="form-group display-flex justify-content-space-between">
+              <div className="form-group justify-content-space-between">
                 <input
-                  className="form-input"
+                  className="flex flex-col md:w-3/4 form-input p-3 col-span-5"
                   type="text"
                   id="newpost-title"
                   name="postTitle"
@@ -252,7 +247,7 @@ const EditPost = (props) => {
                   onChange={handleInputChange}
                 />
                 <input type="hidden" name="description" />
-                <button className="btn btn-submit floating" type="submit">
+                <button className="btn btn-submit floating py-2 px-5 text-center" type="submit">
                   SAVE
                 </button>
               </div>

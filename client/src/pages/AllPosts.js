@@ -6,7 +6,7 @@ const AllPosts = ({ postList }) => {
       {postList &&
         postList.map((poem) => (
           <div key={poem._id} className="blogroll-post ">
-            <h3 className="post-title display-flex justify-space-between-lg align-center">
+            <h3 className="flex flex-col post-title display-flex justify-space-between-lg align-center">
               <span>{poem.postTitle}</span>
               <span className="meta">Posted by {poem.username} on {poem.createdAt}</span>
             </h3>
