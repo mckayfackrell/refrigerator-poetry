@@ -6,7 +6,6 @@ import Auth from '../utils/auth.js';
 import magnetImg from "../assets/magnet.jpg";
 import { Link } from "react-router-dom";
 
-
 const Dashboard = () => {
 
   const user = Auth.getProfile();
@@ -86,7 +85,9 @@ const Dashboard = () => {
   const usrId = user.data._id;
 
   const { loading, data } = useQuery(QUERY_USERBYID, {
+
     variables: { id: usrId },
+
   });
   const userData = data?.userbyid || [];
 
@@ -112,11 +113,4 @@ const Dashboard = () => {
   }*/
 }; 
 
-
-
-
 export default Dashboard;
-    
-
-
-

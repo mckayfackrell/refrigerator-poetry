@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../assets/logo.png";
 import { Link as RouterLink } from "react-router-dom";
 import Auth from '../utils/auth.js';
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false); // new state variable to hold login status
-  const handleClick = () => setNav(!nav);
 
   //const isLoggedIn = Auth.loggedIn;
 
@@ -18,7 +15,7 @@ const Navbar = () => {
 
   return (
     // navbar
-    <div className=" w-full h-[80px] flex justify-between items-center px-4 bg-[#ffffff] text-black">
+    <div className=" w-full flex-col flex justify-between items-center px-4 bg-[#ffffff] text-black">
       {/* logo */}
       <div className="flex items-center">
         <RouterLink to="/">
@@ -29,13 +26,13 @@ const Navbar = () => {
             style={{ width: "60px" }}
           />
         </RouterLink>
-        <div className="ml-2 text-xl md:text-2xl hover:cursor-pointer">
+        <div className=" sm:text-xl md:text-2xl hover:cursor-pointer">
           <RouterLink to="/">Refrigerator Poetry</RouterLink>
         </div>
       </div>
 
       {/* menu */}
-      <ul className="hidden md:flex">
+      <ul className="flex">
         <li className="hover:underline md:text-xl m-4">
           <RouterLink to="/">Home</RouterLink>
         </li>

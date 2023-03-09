@@ -50,6 +50,7 @@ const UserPosts = ({ poemData, userData }) => {
           <div key={poem._id} className="blogroll-post ">
             <h3 className="post-title display-flex justify-space-between-lg align-center">
               <span>{poem.postTitle}</span>
+              <br></br>
               <span className="meta">Posted by {poem.username} on {poem.createdAt}</span>
             </h3>
             <div className="post-content">

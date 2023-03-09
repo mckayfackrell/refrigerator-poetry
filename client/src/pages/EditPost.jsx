@@ -141,15 +141,7 @@ const EditPost = (props) => {
   };
 
   return (
-    <main
-      style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${magnetImg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        height: "100%",
-      }}
-    >
+    <main className="relative w-full h-screen wallpaper">
       <div className="poem-interface-outer">
         <main>
           <div className="create-a-post container">
@@ -262,6 +254,7 @@ const EditPost = (props) => {
                 </button>
               </div>
             </form>
+
           </div>
 
           {error && <div>Something went wrong...</div>}

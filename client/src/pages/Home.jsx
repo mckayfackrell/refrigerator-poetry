@@ -3,20 +3,13 @@ import { QUERY_POSTS } from "../utils/queries";
 import AllPosts from "./AllPosts";
 import magnetImg from "../assets/magnet.jpg";
 
+
 const Home = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
   const postList = data?.allPosts || [];
 
   return (
-    <main
-      style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${magnetImg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        height: "100%",
-      }}
-    >
+    <main className="relative w-full h-screen wallpaper">
       <br></br>
       <div className="container blogroll-posts blogroll-posts-home">
         {loading}

@@ -5,8 +5,6 @@ import { LOGIN_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-import magnetImg from "../assets/magnet.jpg";
-
 export default function Login(props) {
   const logout = (event) => {
     event.preventDefault();
@@ -47,19 +45,9 @@ export default function Login(props) {
     });
   };
 
-  // navigate to signup page
-  const handleSignUpClick = () => {
-    ("/signup");
-  };
-
   return (
     <div className="relative w-full h-screen bg-zinc-900/90">
-      <img
-        className="absolute w-full h-full object-cover mix-blend-overlay"
-        src={magnetImg}
-        alt="/"
-      />
-      <div className="flex justify-center items-center h-full">
+      <div className="flex justify-center items-center h-full wallpaper">
         {data ? (
           <p>
             Success! You may now head{" "}
@@ -98,7 +86,7 @@ export default function Login(props) {
             </div>
             <button
               type="submit"
-              className="w-full py-3 mt-8 bg-slate-600 relative text-white"
+              className="w-full py-3 mt-8 bg-[#154c79] relative text-white"
             >
               Sign In
             </button>
@@ -106,14 +94,14 @@ export default function Login(props) {
             <input className="mr-2" type="checkbox" />
             Remember Me
           </p> */}
-            <p className="text-center mt-8">
+            <div className="text-center mt-8">
               Not a member?{" "}
               <div>
                 <RouterLink className="text-black underline" to="/signup">
                   Sign up now
                 </RouterLink>
               </div>
-            </p>
+            </div>
           </form>
         )}
       </div>
