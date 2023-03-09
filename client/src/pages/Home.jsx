@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
 import AllPosts from "./AllPosts";
-import magnetImg from "../assets/magnet.jpg";
 
 
 const Home = () => {

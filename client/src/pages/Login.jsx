@@ -49,15 +49,17 @@ export default function Login(props) {
     <div className="relative w-full h-screen bg-zinc-900/90">
       <div className="flex justify-center items-center h-full wallpaper">
         {data ? (
-          <p>
-            Success! You may now head{" "}
-            <RouterLink to="/">back to the homepage.</RouterLink>
-            <div>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
-            </div>
-          </p>
+          <div className="max-w-[400px] w-full mx-auto bg-white p-8">
+            <p>
+              Success! You may now head{" "}
+              <RouterLink to="/">back to the homepage.</RouterLink>
+              <div>
+                <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                  Logout
+                </button>
+              </div>
+            </p>
+          </div>
         ) : (
           <form
             onSubmit={handleFormSubmit}

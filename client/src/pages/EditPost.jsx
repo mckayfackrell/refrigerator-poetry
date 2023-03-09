@@ -5,7 +5,6 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutations";
 import API from "../utils/API";
 import WordList from "./WordList";
-import magnetImg from "../assets/magnet.jpg";
 import Auth from '../utils/auth.js';
 
 const EditPost = (props) => {
