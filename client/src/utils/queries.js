@@ -17,6 +17,7 @@ export const QUERY_POSTS = gql`
       postTitle
       description
       createdAt
+      author
       comments {
         _id
         comment

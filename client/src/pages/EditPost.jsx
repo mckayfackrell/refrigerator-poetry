@@ -9,6 +9,7 @@ import magnetImg from "../assets/magnet.jpg";
 import Auth from '../utils/auth.js';
 
 const EditPost = (props) => {
+
   // Get words from Datamuse API
   //const [dynamicWordList, queryDatamuse] = useState('Use the form above to get started');
 
@@ -30,7 +31,13 @@ const EditPost = (props) => {
     console.log(apiFormData.listRule);
     console.log(apiFormData.listWord);
 
-    const apiParams = "?" + apiFormData.listRule + "=" + apiFormData.listWord;
+    var lr = "rel_trg";
+    var lw = "poetry";
+
+    if(!(apiFormData.listRule === '')) { lr = apiFormData.listRule; }
+    if(!(apiFormData.listWord === '')) { lw = apiFormData.listWord; }
+
+    const apiParams = "?" + lr + "=" + lw;
 
     queryDatamuse(apiParams);
   };
@@ -108,26 +115,29 @@ const EditPost = (props) => {
     event.preventDefault();
 
     const usrInfo = Auth.getProfile();
-    console.log(usrInfo.data._id);
+    console.log("Current user: " + usrInfo.data.username);
 
     try {
       const { data } = await createPost({
         variables: {
           postTitle: formData.postTitle,
           description: formData.description,
+          author: usrInfo.data.username,
           userId: usrInfo.data._id
          },
       });
 
       // was: variables: { ...formData },
       console.log("id: " + data.createPost._id);
-
       
     } catch (err) {
       console.error(err);
+    } finally {
+      // navigate(`/post/${data.createPost._id}`);
+      navigate(`/dashboard`);
     }
-    // navigate(`/post/${data.createPost._id}`);
-    navigate(`/`);
+
+
   };
 
   return (

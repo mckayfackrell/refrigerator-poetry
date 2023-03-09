@@ -25,8 +25,8 @@ const resolvers = {
     // },
   },
   Mutation: {
-    createPost: async (_parent, { userId, postTitle, description }) => {
-      const newPost = await Post.create({postTitle, description});
+    createPost: async (_parent, { userId, postTitle, description, author }) => {
+      const newPost = await Post.create({postTitle, description, author});
       const assignedPost = await User.findByIdAndUpdate(
         userId, 
         { $addToSet: { posts: newPost._id }},

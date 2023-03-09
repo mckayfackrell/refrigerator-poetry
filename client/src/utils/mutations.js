@@ -1,11 +1,12 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_POST = gql`
-mutation CreatePost($postTitle: String!, $description: String!, $userId: String!) {
-  createPost(postTitle: $postTitle, description: $description, userId: $userId) {
+mutation CreatePost($postTitle: String!, $description: String!, $author: String!, $userId: String!) {
+  createPost(postTitle: $postTitle, description: $description, author: $author, userId: $userId) {
     _id
     postTitle
     description
+    author
     createdAt
   }
 }

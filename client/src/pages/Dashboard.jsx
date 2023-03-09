@@ -46,9 +46,9 @@ const Dashboard = () => {
       <h3 className="bg-white p-3">Welcome, {user.data.username}!</h3>
         {loading}
         {userData ? (
-          <div className="bg-white p-5"><Link to="/post" className="hover:underline underline">Create your first poem</Link> to get started!</div>
-        ): (
           <></>
+          ) : (
+            <div className="bg-white p-5"><Link to="/post" className="hover:underline underline">Create your first poem</Link> to get started!</div>
         )}
         <UserPosts userData={userData} poemData={userData.posts} />
       </div>
