@@ -13,17 +13,20 @@ const resolvers = {
     postById: async (_parent, { _id }) => {
       return Post.findById(_id);
     },
-    userbyid: async (_parent, { _id }) => {
+    /* userbyid: async (_parent, { _id }) => {
       return User.findById(_id);
-    },
+    }, */
+    userbyid: async (_parent, { _id }) => {
+      return User.findById(_id).populate('posts');
+    }
     // userposts: async (parent, { _id }) => {
     //   const params = _id ? { _id } : {};
     //   return User.find(params);
     // },
   },
   Mutation: {
-    createPost: async (_parent, { userId, postTitle, description }) => {
-      const newPost = await Post.create({postTitle, description});
+    createPost: async (_parent, { userId, postTitle, description, author }) => {
+      const newPost = await Post.create({postTitle, description, author});
       const assignedPost = await User.findByIdAndUpdate(
         userId, 
         { $addToSet: { posts: newPost._id }},
@@ -59,6 +62,7 @@ const resolvers = {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
+      return { token, user};
     },
     
     login: async (parent, { email, password }) => {

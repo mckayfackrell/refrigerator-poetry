@@ -5,23 +5,15 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutations";
 import API from "../utils/API";
 import WordList from "./WordList";
+import magnetImg from "../assets/magnet.jpg";
+import Auth from '../utils/auth.js';
 
 const EditPost = (props) => {
+
   // Get words from Datamuse API
   //const [dynamicWordList, queryDatamuse] = useState('Use the form above to get started');
 
-  const [dynamicWordList, setResult] = useState([
-    { word: "snappy", score: 698, numSyllables: 2 },
-    { word: "scrappy", score: 697, numSyllables: 2 },
-    { word: "sappy", score: 619, numSyllables: 2 },
-    { word: "zappy", score: 397, numSyllables: 2 },
-    { word: "yappy", score: 384, numSyllables: 2 },
-    { word: "flappy", score: 364, numSyllables: 2 },
-    { word: "pappy", score: 318, numSyllables: 2 },
-    { word: "gappy", score: 307, numSyllables: 2 },
-    { word: "chappie", score: 296, numSyllables: 2 },
-    { word: "strappy", score: 210, numSyllables: 2 },
-  ]);
+  const [dynamicWordList, setResult] = useState([]);
   //const [searchTerm, setSearch] = useState('');
 
   const queryDatamuse = (query) => {
@@ -39,7 +31,13 @@ const EditPost = (props) => {
     console.log(apiFormData.listRule);
     console.log(apiFormData.listWord);
 
-    const apiParams = "?" + apiFormData.listRule + "=" + apiFormData.listWord;
+    var lr = "rel_trg";
+    var lw = "poetry";
+
+    if(!(apiFormData.listRule === '')) { lr = apiFormData.listRule; }
+    if(!(apiFormData.listWord === '')) { lw = apiFormData.listWord; }
+
+    const apiParams = "?" + lr + "=" + lw;
 
     queryDatamuse(apiParams);
   };
@@ -82,7 +80,12 @@ const EditPost = (props) => {
   // Update poemBody state
   function moveMagnet(word) {
     console.log(word);
-    const wrappedWord = '<span class="magnet">' + word + "</span>";
+
+    var wrappedWord = '<span class="magnet">' + word + '</span>';
+
+    if (word === "LINEBREAK") {
+        wrappedWord = '<span class="lineBR">X</span><br />';
+    } 
 
     if (word === "start-over") {
       writePoem(welcomeMsg);
@@ -111,18 +114,30 @@ const EditPost = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    const usrInfo = Auth.getProfile();
+    console.log("Current user: " + usrInfo.data.username);
+
     try {
       const { data } = await createPost({
-        variables: { ...formData },
+        variables: {
+          postTitle: formData.postTitle,
+          description: formData.description,
+          author: usrInfo.data.username,
+          userId: usrInfo.data._id
+         },
       });
 
+      // was: variables: { ...formData },
       console.log("id: " + data.createPost._id);
-
-      // navigate(`/post/${data.createPost._id}`);
-      navigate(`/`);
+      
     } catch (err) {
       console.error(err);
+    } finally {
+      // navigate(`/post/${data.createPost._id}`);
+      navigate(`/dashboard`);
     }
+
+
   };
 
   return (
@@ -210,42 +225,36 @@ const EditPost = (props) => {
 
             <div id="help-buttons" className="text-right">
               <button
-                className="btn floating col-3"
+                className="btn floating col-3 p-2"
                 data-func="start-over"
                 onClick={() => moveMagnet("start-over")}
               >
                 START OVER
               </button>
             </div>
-            <div className="text-center">
-              <form
-                className="form update-a-post-form"
-                data-id="usethepostidforthis"
-                data-func="save"
-                onSubmit={handleFormSubmit}
-              >
-                <div className="form-group">
-                  <input
-                    className="form-input w-32 h-14 md:w-96 mx-auto"
-                    type="text"
-                    id="newpost-title"
-                    name="postTitle"
-                    placeholder="Poem Title"
-                    onChange={handleInputChange}
-                  />
-                  <input type="hidden" name="description" />
-                </div>
-                <div className="text-center">
-                  <button
-                    className="btn btn-submit"
-                    type="submit"
-                    style={{ border: "3px solid white" }}
-                  >
-                    SAVE
-                  </button>
-                </div>
-              </form>
-            </div>
+
+            <form
+              className="form update-a-post-form"
+              data-id="usethepostidforthis"
+              data-func="save"
+              onSubmit={handleFormSubmit}
+            >
+              <div className="form-group justify-content-space-between">
+                <input
+                  className="flex flex-col md:w-3/4 form-input p-3 col-span-5"
+                  type="text"
+                  id="newpost-title"
+                  name="postTitle"
+                  placeholder="title of your poem"
+                  onChange={handleInputChange}
+                />
+                <input type="hidden" name="description" />
+                <button className="btn btn-submit floating py-2 px-5 text-center" type="submit">
+                  SAVE
+                </button>
+              </div>
+            </form>
+
           </div>
 
           {error && <div>Something went wrong...</div>}

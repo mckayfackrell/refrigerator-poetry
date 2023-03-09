@@ -7,9 +7,9 @@ import Auth from "../utils/auth";
 
 export default function Signup() {
   const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: '',
   });
   const [addUser, { data }] = useMutation(ADD_USER);
 

@@ -107,7 +107,7 @@ function App() {
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard/:id" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route
               path="/post"
               element={
