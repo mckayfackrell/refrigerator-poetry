@@ -6,6 +6,7 @@ import { CREATE_POST } from "../utils/mutations";
 import API from "../utils/API";
 import WordList from "./WordList";
 import magnetImg from "../assets/magnet.jpg";
+import Auth from '../utils/auth.js';
 
 const EditPost = (props) => {
   // Get words from Datamuse API
@@ -112,11 +113,19 @@ const EditPost = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    const usrInfo = Auth.getProfile();
+    console.log(usrInfo.data._id);
+
     try {
       const { data } = await createPost({
-        variables: { ...formData },
+        variables: {
+          postTitle: formData.postTitle,
+          description: formData.description,
+          userId: usrInfo.data._id
+         },
       });
 
+      // was: variables: { ...formData },
       console.log("id: " + data.createPost._id);
 
       // navigate(`/post/${data.createPost._id}`);

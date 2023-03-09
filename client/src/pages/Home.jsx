@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
-import UserPosts from "./UserPosts";
+import AllPosts from "./AllPosts";
 import magnetImg from "../assets/magnet.jpg";
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
       <br></br>
       <div className="container blogroll-posts blogroll-posts-home">
         {loading}
-        <UserPosts postList={postList} />
+        <AllPosts postList={postList} />
       </div>
     </main>
   );

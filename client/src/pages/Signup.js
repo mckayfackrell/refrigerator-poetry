@@ -9,9 +9,9 @@ import magnetImg from "../assets/magnet.jpg";
 
 export default function Signup() {
   const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: '',
   });
   const [addUser, { data }] = useMutation(ADD_USER);
 
@@ -98,7 +98,7 @@ export default function Signup() {
             >
               Sign In
             </button>
-            <p className="text-center mt-8">
+            <div className="text-center mt-8">
               Already a member?{" "}
               <div>
                 <RouterLink
@@ -108,7 +108,7 @@ export default function Signup() {
                   Log in now
                 </RouterLink>
               </div>
-            </p>
+            </div>
           </form>
         )}
       </div>

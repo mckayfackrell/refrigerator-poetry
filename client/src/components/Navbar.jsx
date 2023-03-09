@@ -35,7 +35,7 @@ const Navbar = () => {
           <RouterLink to="/post">Create</RouterLink>
         </li>
         <li className="hover:underline md:text-xl m-4">
-          <RouterLink to="/dashboard/:id">Dashboard</RouterLink>
+          <RouterLink to="/dashboard">Dashboard</RouterLink>
         </li>
         {/* conditionally render "Login" or "Logout" link based on login status */}
         {loggedIn ? (

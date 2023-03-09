@@ -27,17 +27,16 @@ export const QUERY_POSTS = gql`
 `;
 
 export const QUERY_USERBYID = gql`
-  query userbyid {
-    userbyid {
-      _id
-      username
-      email
-      posts {
-        _id
-        title
-        description
-        createdAt
-      }
+query Userbyid($id: ID!) {
+  userbyid(_id: $id) {
+    _id
+    email
+    username
+    posts {
+      postTitle
+      description
+      createdAt
     }
   }
+}
 `;

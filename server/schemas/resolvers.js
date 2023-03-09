@@ -13,17 +13,26 @@ const resolvers = {
     postById: async (_parent, { _id }) => {
       return Post.findById(_id);
     },
-    userbyid: async (_parent, { _id }) => {
+    /* userbyid: async (_parent, { _id }) => {
       return User.findById(_id);
-    },
+    }, */
+    userbyid: async (_parent, { _id }) => {
+      return User.findById(_id).populate('posts');
+    }
     // userposts: async (parent, { _id }) => {
     //   const params = _id ? { _id } : {};
     //   return User.find(params);
     // },
   },
   Mutation: {
-    createPost: async (_parent, args) => {
-      const newPost = await Post.create(args);
+    createPost: async (_parent, { userId, postTitle, description }) => {
+      const newPost = await Post.create({postTitle, description});
+      const assignedPost = await User.findByIdAndUpdate(
+        userId, 
+        { $addToSet: { posts: newPost._id }},
+        { new: true }
+        );
+
       return newPost;
     },
 
@@ -53,6 +62,7 @@ const resolvers = {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
+      return { token, user};
     },
     
     login: async (parent, { email, password }) => {
@@ -62,6 +72,7 @@ const resolvers = {
         throw new AuthenticationError('No user with this email');
       }
       const correctPw = await user.isCorrectPassword(password);
+      console.log("correctPw " + correctPw);
 
       if(!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
