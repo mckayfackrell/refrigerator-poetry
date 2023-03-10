@@ -3,7 +3,7 @@
 Introducing Refrigerator Poetry - an app that empowers users to compose and distribute their own unique poems. By signing into their account, users can not only create and share their work, but also engage with other poets by commenting and upvoting their pieces. With this platform, individuals can unleash their creativity and be inspired by the ingenuity of others.
 
 ## URL and Screenshots
-[Refrigerator Poetry ](https://refrigerator-poetry.herokuapp.com/login)
+[Refrigerator Poetry ](https://refrigerator-poetry.herokuapp.com)
 
 | Homepage | Dashboard | New Post | Mobile |
 |---------|---------|---------|---------|
@@ -17,7 +17,7 @@ Introducing Refrigerator Poetry - an app that empowers users to compose and dist
 
 
 ## Usage
-The app, [Refrigerator Poetry](https://refrigerator-poetry.herokuapp.com/login), allows you to create, share, and enjoy poetry. To get started, you can create an account or log in. Once you've logged in, you can view your own posts and see the number of upvotes and comments they've received. You can also edit or delete your posts as needed.
+The app, [Refrigerator Poetry](https://refrigerator-poetry.herokuapp.com), allows you to create, share, and enjoy poetry. To get started, you can create an account or log in. Once you've logged in, you can view your own posts and see the number of upvotes and comments they've received. You can also edit or delete your posts as needed.
 
 To make a new post, you can choose words from the app's word bank or generate related words to get inspiration. You can drag and drop the words to create poetry. Once you've created your poem, you can post it to the feed, where others can read it, upvote it, and leave comments.
 
